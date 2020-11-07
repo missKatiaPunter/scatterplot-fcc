@@ -1,0 +1,17 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+svg{
+    background-color: rgb(205, 237, 255);
+}
