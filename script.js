@@ -1,3 +1,4 @@
+console.log("hello");
 const dataSource = "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json";
 
 let xScale;
