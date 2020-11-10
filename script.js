@@ -21,7 +21,7 @@ fetch(dataSource)
         let yExtent = d3.extent(data, d => d3.timeParse("%M:%S")(d.Time));
         console.log(yExtent)
         xScale = d3.scaleLinear().domain(xExtent).range([padding, w-padding]);
-        yScale = d3.scaleTime().domain(yExtent).range([h-padding, padding]);
+        yScale = d3.scaleTime().domain(yExtent).range([padding, h-padding]);
         svg.selectAll("circle")
         .data(data) //binds the data to non-existent yet circles
         .enter() //creates one circle element for every datum in the array
