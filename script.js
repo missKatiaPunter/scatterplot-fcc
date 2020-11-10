@@ -18,7 +18,8 @@ fetch(dataSource)
         })
     .then(data => {
         let xExtent = d3.extent(data, d => d.Year);
-        let yExtent = d3.extent(data, d => d.Time)
+        let yExtent = d3.extent(data, d => d3.timeParse("%M:%S")(d.Time));
+        console.log(yExtent)
         xScale = d3.scaleLinear().domain(xExtent).range([padding, w-padding]);
         yScale = d3.scaleTime().domain(yExtent).range([h-padding, padding]);
         svg.selectAll("circle")
@@ -27,7 +28,9 @@ fetch(dataSource)
         .append("circle") //appends actual svg circles
         .attr('class', 'dot') // passes dot class test
         .attr('cx', d => xScale(d.Year))
-        .attr('cy', d => yScale(d.Time))
+        .attr('cy', d => yScale(d3.timeParse("%M:%S")(d.Time)))
+        .attr('data-xvalue', d => d.Year)
+        .attr('data-yvalue', d => d.Time)
         .attr('r', d=> r)
         .attr('fill', 'yellow')
 
