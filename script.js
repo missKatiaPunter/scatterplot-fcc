@@ -30,8 +30,8 @@ fetch(dataSource)
         .attr('cx', d => xScale(d.Year))
         .attr('cy', d => yScale(d3.timeParse("%M:%S")(d.Time)))
         .attr('data-xvalue', d => d.Year)
-        .attr('data-yvalue', d => d.Time)
-        .attr('r', d=> r)
+        .attr('data-yvalue', d => d3.timeParse("%M:%S")(d.Time))
+        .attr('r', (_) => r)
         .attr('fill', 'yellow')
 
     });
